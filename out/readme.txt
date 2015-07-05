@@ -1,0 +1,1 @@
+Download and import the TrayNotification.jar into your JavaFX application and add it as a library and you're good to go.
