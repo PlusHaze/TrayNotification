@@ -6,7 +6,8 @@ ___
 
 <p align="center">
 
-Tray Notification is a class coded in JavaFX that is used to construct tray notifications on desktop computers. The TrayNotification comes with 5 preloaded notification types but also allows users to create their own custom tray.
+Tray Notification is a class coded in JavaFX that is used to construct tray notifications which can be shown on desktop computers. The TrayNotification comes with 5 preloaded notification types and 3 animation types, but also allows users to create their own custom tray types.
+
 <br>
 To use, create an instance of TrayNotification class and define its title, message and notificationType
 <br>
@@ -35,7 +36,7 @@ An alternative is to initialize the Tray Notification via the Constructors.
 ```
 
 <p align="center">
-This therefore produces.
+This therefore produces the tray notification, as shown below.
 </p>
 
 <p align="center">
@@ -46,7 +47,10 @@ This therefore produces.
 
 <p align="center">
 The default animation type is a sliding animation.
-Which when shownAndWait() is called is animated which looks like
+
+When shownAndWait() is called, the tray notification will show and wait till it's dismissed either progrmatically or using the close button. 
+
+When showAndWait() is called it produces an animated entrance which looks the gif below
 </p>
 
 <br>
@@ -95,7 +99,7 @@ ___
 <p align="center">
 You can set a custom image, custom rectangle fill, and we can also use a popup animation.
 You can also use a showAndDismiss, which will show both the show and dismiss animation. It also
-allows you to set a parameter which contros how long the the computer should wait before showing the dismiss animation.
+allows you to set a parameter which controls how long the tray should wait after the show animation to run the dismiss animation. This is great when you want notifications to show for x amount of time before closing.
 </p>
 
 ```java
@@ -117,11 +121,10 @@ allows you to set a parameter which contros how long the the computer should wai
 
 ___
 
-### Setting a new tray overloads
+### Setting a new tray overload methods
 
 <p align="center">
-Finally, a short hand to changing the design of a tray animation is.
-tray.setTray();
+A short hand to changing the design of a tray animation is to use the setTray() overload methods as shown below.
 </p>
 
 ```java
@@ -138,9 +141,11 @@ tray.setTray();
 ___
 
 
-### A YouTube video demonstration of me testing the tray notification.
+### YouTube video demonstration
 
 <p align="center">
+
+The video below is the TrayTester.jar file which can be found in diretory https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar
 
 Click the image to go to the YouTube video.
 
