@@ -47,14 +47,11 @@ The default animation type is a sliding animation.
 Which when shownAndWait() is called is animated which looks like
 </p>
 
-
 <br>
 <br>
+<p align="center">
 <img src = "http://i.imgur.com/2xr6k7E.gif"/>
-<br>
-<br>
-<br>
-<br>
+</p>
 <br>
 <br>
 
@@ -106,20 +103,12 @@ allows you to set a parameter which contros how long the the computer should wai
         tray.showAndDismiss(Duration.seconds(2));
 ```
 <br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
 <p align="center">
 <img src = "http://i.imgur.com/VjPOzza.gif"/>
 </p>
 <br>
-<br>
 
 ___
-
 
 <p align="center">
 Finally, a short hand to changing the design of a tray animation is.
