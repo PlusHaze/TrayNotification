@@ -7,12 +7,11 @@ Tray Notification is a object coded in JavaFX that is used to construct tray not
 To use, create an instance of TrayNotification class and define its title, message and notificationType
 <br>
 <br>
-<p>
+</p>
 
 ```java
-
-        String title = "Congratulations Sir";
-        String message = "You've successfully created your very first Tray Notification";
+        String title = "Congratulations sir";
+        String message = "You've successfully created your first Tray Notification";
         NotificationType type = NotificationType.SUCCESS;
         
         TrayNotification tray = new TrayNotification();
@@ -31,31 +30,72 @@ An alternative is to initialize the Tray Notification via the Constructors.
 
 This therefore produces.
 
+<img src = "http://i.imgur.com/IFmooQe.jpg"/>
 
-
-
-Here is an image of the API calls that can be made using the TrayNotification class.
-<br>
-<br>
-<img src = ""/>
-<br>
-<br>
-
-This is the recent scores where you can view all of the past games you've played.
+The default animation type is a sliding animation.
+Which when shownAndWait() is called is animated which looks like
 
 <br>
 <br>
-<img src = ""/>
+<img src = "http://i.imgur.com/2xr6k7E.gif"/>
+<br>
+<br>
+
+You can also set a different notification type and set a different animation type.
+For example, we can use a Notice nofitication type and a fading animation.
+
+```java
+        String title = "Download quota reached";
+        String message = "Your download quota has been reached. Panic.";
+        NotificationType type = NotificationType.NOTICE;
+        
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(type);
+        tray.setAnimationType(AnimationType.FADE);
+        tray.showAndWait();
+```
+
+<br>
+<br>
+<img src = "http://i.imgur.com/sFHp2vJ.gif"/>
 <br>
 <br>
 
 
-Finally, here's the main game scene.
+You can set a custom image, custom rectangle fill, and we can also use a popup animation.
+You can also use a showAndDismiss, which will show both the show and dismiss animation. It also
+allows you to set a parameter which contros how long the the computer should wait before showing the dismiss animation.
+
+
+```java
+        Image whatsApp = new Image("https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/whatsapp-128.png");
+        
+        tray.setTitle("New WhatsApp Message");
+        tray.setMessage("Github - I like your new notification release. Nice one.");
+        tray.setRectangleFill(Paint.valueOf("#2A9A84"));
+        tray.setAnimationType(AnimationType.POPUP);
+        tray.setImage(whatsApp);
+        tray.showAndDismiss(Duration.seconds(2));
+```
 
 <br>
 <br>
-<img src = ""/>
+<img src = "http://i.imgur.com/VjPOzza.gif"/>
 <br>
 <br>
 
-</p>
+
+Finally, a short hand to changing the design of a tray animation is.
+tray.setTray();
+
+```java
+
+        tray.setTray("Title", "Message", NotificationType.ERROR);
+        tray.showAndWait();
+        
+        //OR
+        tray.setTray("Title", "Message", whatsAppImg, Paint.valueOf("#2A9A84") , AnimationType.POPUP);
+        tray.showAndDismiss(Duration.seconds(10));
+
+```
