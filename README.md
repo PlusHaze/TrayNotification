@@ -66,8 +66,8 @@ ___
 ### Using different animation and notification types
 
 <p align="center">
-You can also set a different notification type and set a different animation type.
-For example, we can use a Notice nofitication type and a fading animation.
+You can also set a different notification and animation type.
+For example, you can use a Notice nofitication type with a fading animation.
 </p>
 
 ```java
