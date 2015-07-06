@@ -1,5 +1,7 @@
 # TrayNotification
 
+___
+
 <p align="center">
 
 Tray Notification is a object coded in JavaFX that is used to construct tray notifications on desktop computers. The TrayNotification comes with 5 preloaded notification types but also allows users to create their own custom tray.
@@ -56,6 +58,8 @@ Which when shownAndWait() is called is animated which looks like
 <br>
 <br>
 
+___
+
 <p align="center">
 You can also set a different notification type and set a different animation type.
 For example, we can use a Notice nofitication type and a fading animation.
@@ -79,6 +83,12 @@ For example, we can use a Notice nofitication type and a fading animation.
 <br>
 <br>
 
+___
+
+<br>
+<br>
+<br>
+
 <p align="center">
 You can set a custom image, custom rectangle fill, and we can also use a popup animation.
 You can also use a showAndDismiss, which will show both the show and dismiss animation. It also
@@ -95,6 +105,10 @@ allows you to set a parameter which contros how long the the computer should wai
         tray.setImage(whatsApp);
         tray.showAndDismiss(Duration.seconds(2));
 ```
+<br>
+<br>
+<br>
+<br>
 
 <br>
 <br>
@@ -103,6 +117,9 @@ allows you to set a parameter which contros how long the the computer should wai
 </p>
 <br>
 <br>
+
+___
+
 
 <p align="center">
 Finally, a short hand to changing the design of a tray animation is.
