@@ -2,6 +2,8 @@
 
 ___
 
+### Creating a new tray notification
+
 <p align="center">
 
 Tray Notification is a object coded in JavaFX that is used to construct tray notifications on desktop computers. The TrayNotification comes with 5 preloaded notification types but also allows users to create their own custom tray.
@@ -57,6 +59,8 @@ Which when shownAndWait() is called is animated which looks like
 
 ___
 
+### Using different animation and notification types
+
 <p align="center">
 You can also set a different notification type and set a different animation type.
 For example, we can use a Notice nofitication type and a fading animation.
@@ -76,14 +80,16 @@ For example, we can use a Notice nofitication type and a fading animation.
 
 <br>
 <br>
+<p align="center">
 <img src = "http://i.imgur.com/sFHp2vJ.gif"/>
+</p>
 <br>
 <br>
 
 ___
 
-<br>
-<br>
+### Creating a custom tray notification
+
 <br>
 
 <p align="center">
@@ -93,13 +99,13 @@ allows you to set a parameter which contros how long the the computer should wai
 </p>
 
 ```java
-        Image whatsApp = new Image("https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/whatsapp-128.png");
+        Image whatsAppImg = new Image("https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/whatsapp-128.png");
         
         tray.setTitle("New WhatsApp Message");
         tray.setMessage("Github - I like your new notification release. Nice one.");
         tray.setRectangleFill(Paint.valueOf("#2A9A84"));
         tray.setAnimationType(AnimationType.POPUP);
-        tray.setImage(whatsApp);
+        tray.setImage(whatsAppImg);
         tray.showAndDismiss(Duration.seconds(2));
 ```
 <br>
@@ -108,7 +114,10 @@ allows you to set a parameter which contros how long the the computer should wai
 </p>
 <br>
 
+
 ___
+
+### Setting a new tray overloads
 
 <p align="center">
 Finally, a short hand to changing the design of a tray animation is.
@@ -125,3 +134,20 @@ tray.setTray();
         tray.showAndDismiss(Duration.seconds(10));
 
 ```
+
+___
+
+
+### A YouTube video demonstration of me testing the tray notification.
+
+<p align="center">
+
+Click the image to go to the YouTube video.
+
+<br>
+<br>
+
+<a href="https://www.youtube.com/watch?v=SeaF3lTmbQE"
+target="_blank"><img src="http://i.imgur.com/2k0Sw7F.jpg" 
+alt="IMAGE ALT TEXT HERE" width="380" height="566" border="10" /></a>
+</p>
