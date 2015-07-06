@@ -6,7 +6,7 @@ ___
 
 <p align="center">
 
-Tray Notification is a object coded in JavaFX that is used to construct tray notifications on desktop computers. The TrayNotification comes with 5 preloaded notification types but also allows users to create their own custom tray.
+Tray Notification is a class coded in JavaFX that is used to construct tray notifications on desktop computers. The TrayNotification comes with 5 preloaded notification types but also allows users to create their own custom tray.
 <br>
 To use, create an instance of TrayNotification class and define its title, message and notificationType
 <br>
