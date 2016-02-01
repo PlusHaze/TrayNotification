@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Jire/TrayNotification.svg?branch=master)](https://travis-ci.org/Jire/TrayNotification) 
+[![](https://jitpack.io/v/PlusHaze/TrayNotification.svg)](https://jitpack.io/#PlusHaze/TrayNotification)
+
 # Tray Notification
 
 _Tray Notification_ is a library for JavaFX that adds easy-to-use tray notifications for desktop computers. There are
