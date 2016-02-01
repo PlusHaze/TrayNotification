@@ -1,16 +1,14 @@
-# TrayNotification
+# Tray Notification
+
+_Tray Notification_ is a library for JavaFX that adds easy-to-use tray notifications for desktop computers. There are
+5 included notification types and 3 animation types, but users can create their own custom notifications.
 
 ___
 
 ### Creating a new tray notification
 
 <p align="center">
-
-Tray Notification is a class coded in JavaFX that is used to construct tray notifications which can be shown on desktop computers. The TrayNotification comes with 5 preloaded notification types and 3 animation types, but also allows users to create their own custom tray types.
-
-<br>
-To use, create an instance of TrayNotification class and define its title, message and notificationType
-<br>
+To use, create an instance of <em>TrayNotification</em> and define its title, message and notification type.
 <br>
 </p>
 
@@ -27,17 +25,13 @@ To use, create an instance of TrayNotification class and define its title, messa
 ```
 
 <p align="center">
-An alternative is to initialize the Tray Notification via the Constructors.
+Alternatively you can initialize the tray notification with its non-default constructors.
 </p>
 
 ```java
         TrayNotification tray = new TrayNotification(title, message, type);
         tray.showAndWait();
 ```
-
-<p align="center">
-This therefore produces the tray notification, as shown below.
-</p>
 
 <p align="center">
 <img src = "http://i.imgur.com/IFmooQe.jpg"/>
@@ -48,9 +42,8 @@ This therefore produces the tray notification, as shown below.
 <p align="center">
 The default animation type is a sliding animation.
 
-When shownAndWait() is called, the tray notification will show and wait till it's dismissed either progrmatically or using the close button. 
-
-When showAndWait() is called it produces an animated entrance which looks the gif below
+When <em>shownAndWait()</em> is called, the tray notification will show and wait until it is either dismissed
+with the close button or programmatically through your code. 
 </p>
 
 <br>
@@ -66,8 +59,9 @@ ___
 ### Using different animation and notification types
 
 <p align="center">
-You can also set a different notification and animation type.
-For example, you can use a Notice nofitication type with a fading animation.
+You can also customize the notification and animation type individually.
+<br>
+For example, a <em>NOTICE</em> notification with a fading animation:
 </p>
 
 ```java
@@ -97,9 +91,9 @@ ___
 <br>
 
 <p align="center">
-You can set a custom image, custom rectangle fill, and we can also use a popup animation.
-You can also use a showAndDismiss, which will show both the show and dismiss animation. It also
-allows you to set a parameter which controls how long the tray should wait after the show animation to run the dismiss animation. This is great when you want notifications to show for x amount of time before closing.
+You're also able to set a custom image or rectangle fill. You can use <em>showAndDismiss</em>, which will show both the
+show and dismiss animation. You're also able to control the delay before dismissal following the show animation.
+This is useful for when you want a notification to appear for a certain amount of time before closing.
 </p>
 
 ```java
@@ -124,7 +118,7 @@ ___
 ### Setting a new tray overload methods
 
 <p align="center">
-A short hand to changing the design of a tray animation is to use the setTray() overload methods as shown below.
+A shorthand to changing the design of a tray animation is to use the <em>setTray</em>'s overloaded methods.
 </p>
 
 ```java
@@ -145,14 +139,16 @@ ___
 
 <p align="center">
 
-The video below is the TrayTester.jar file which can be found in diretory https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar
-
-Click the image to go to the YouTube video.
+The video below showcases the <em>TrayTester.jar</em> app 
+<a href="https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar">which you can get here</a>.
+<br>
+<br>
+Click the image below to watch the YouTube video.
 
 <br>
 <br>
 
-<a href="https://www.youtube.com/watch?v=SeaF3lTmbQE"
-target="_blank"><img src="http://i.imgur.com/2k0Sw7F.jpg" 
-alt="IMAGE ALT TEXT HERE" width="380" height="566" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=SeaF3lTmbQE" target="_blank">
+  <img src="http://i.imgur.com/2k0Sw7F.jpg" width="380" height="566" border="10" />
+</a>
 </p>
