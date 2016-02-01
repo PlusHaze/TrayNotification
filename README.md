@@ -92,7 +92,7 @@ ___
 <p align="center">
 You're also able to set a custom image or rectangle fill. You can use <em>showAndDismiss</em>, which will show both the
 show and dismiss animation. You're also able to control the delay before dismissal following the show animation.
-This is great for when you want a notification to show for <em>x</em> amount of time before closing.
+This is useful for when you want a notification to appear for a certain amount of time before closing.
 </p>
 
 ```java
@@ -139,7 +139,7 @@ ___
 <p align="center">
 
 The video below showcases the <em>TrayTester.jar</em> app 
-<a href="https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar>which you can get here</a>.
+<a href="https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar">which you can get here</a>.
 <br>
 <br>
 Click the image below to watch the YouTube video.
