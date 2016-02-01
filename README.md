@@ -8,7 +8,7 @@ ___
 ### Creating a new tray notification
 
 <p align="center">
-To use, create an instance of TrayNotification class and define its title, message and notificationType
+To use, create an instance of `TrayNotification` and define its title, message and notification type.
 <br>
 </p>
 
@@ -25,17 +25,13 @@ To use, create an instance of TrayNotification class and define its title, messa
 ```
 
 <p align="center">
-An alternative is to initialize the Tray Notification via the Constructors.
+Alternatively you can initialize the tray notification with its non-default constructors.
 </p>
 
 ```java
         TrayNotification tray = new TrayNotification(title, message, type);
         tray.showAndWait();
 ```
-
-<p align="center">
-This therefore produces the tray notification, as shown below.
-</p>
 
 <p align="center">
 <img src = "http://i.imgur.com/IFmooQe.jpg"/>
@@ -46,9 +42,7 @@ This therefore produces the tray notification, as shown below.
 <p align="center">
 The default animation type is a sliding animation.
 
-When shownAndWait() is called, the tray notification will show and wait till it's dismissed either progrmatically or using the close button. 
-
-When showAndWait() is called it produces an animated entrance which looks the gif below
+When `shownAndWait()` is called, the tray notification will show and wait until it is either dismissed with the close button or programmatically. 
 </p>
 
 <br>
@@ -64,8 +58,8 @@ ___
 ### Using different animation and notification types
 
 <p align="center">
-You can also set a different notification and animation type.
-For example, you can use a Notice notification type with a fading animation.
+You can also customize the notification and animation type individually.
+For example, below shows a `NOTICE` notification with a fading animation.
 </p>
 
 ```java
@@ -95,9 +89,9 @@ ___
 <br>
 
 <p align="center">
-You can set a custom image, custom rectangle fill, and we can also use a popup animation.
-You can also use a showAndDismiss, which will show both the show and dismiss animation. It also
-allows you to set a parameter which controls how long the tray should wait after the show animation to run the dismiss animation. This is great when you want notifications to show for x amount of time before closing.
+You're also able to set a custom image or rectangle fill. You can use `showAndDismiss`, which will show both the show
+and dismiss animation. You're also able to control the delay before dismissal following the show animation.
+This is great for when you want a notification to show for _x_ amount of time before closing.
 </p>
 
 ```java
