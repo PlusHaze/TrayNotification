@@ -1,16 +1,14 @@
-# TrayNotification
+# Tray Notification
+
+_Tray Notification_ is a library for JavaFX that adds easy to use tray notifications for desktop computers. There are
+5 included notification types and 3 animation types, but users can create their own custom notifications.
 
 ___
 
 ### Creating a new tray notification
 
 <p align="center">
-
-Tray Notification is a class coded in JavaFX that is used to construct tray notifications which can be shown on desktop computers. The TrayNotification comes with 5 preloaded notification types and 3 animation types, but also allows users to create their own custom tray types.
-
-<br>
 To use, create an instance of TrayNotification class and define its title, message and notificationType
-<br>
 <br>
 </p>
 
@@ -67,7 +65,7 @@ ___
 
 <p align="center">
 You can also set a different notification and animation type.
-For example, you can use a Notice nofitication type with a fading animation.
+For example, you can use a Notice notification type with a fading animation.
 </p>
 
 ```java
@@ -124,7 +122,7 @@ ___
 ### Setting a new tray overload methods
 
 <p align="center">
-A short hand to changing the design of a tray animation is to use the setTray() overload methods as shown below.
+A shorthand to changing the design of a tray animation is to use the `setTray`'s overloaded methods.
 </p>
 
 ```java
@@ -145,14 +143,14 @@ ___
 
 <p align="center">
 
-The video below is the TrayTester.jar file which can be found in diretory https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar
-
+The video below showcases the `TrayTester.jar` app [which you can get here](https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar).
+<br>
 Click the image to go to the YouTube video.
 
 <br>
 <br>
 
-<a href="https://www.youtube.com/watch?v=SeaF3lTmbQE"
-target="_blank"><img src="http://i.imgur.com/2k0Sw7F.jpg" 
-alt="IMAGE ALT TEXT HERE" width="380" height="566" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=SeaF3lTmbQE" target="_blank">
+  <img src="http://i.imgur.com/2k0Sw7F.jpg" width="380" height="566" border="10" />
+</a>
 </p>
