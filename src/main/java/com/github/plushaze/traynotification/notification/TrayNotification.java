@@ -111,8 +111,8 @@ public final class TrayNotification {
 	public void setNotificationType(NotificationType nType) {
 		notificationType = nType;
 
-		URL imageLocation = getClass().getResource(nType.resource());
-		setRectangleFill(Paint.valueOf(nType.paintHex()));
+		URL imageLocation = getClass().getResource(nType.getURLResource());
+		setRectangleFill(Paint.valueOf(nType.getPaintHex()));
 		setImage(new Image(imageLocation.toString()));
 		setTrayIcon(imageIcon.getImage());
 	}

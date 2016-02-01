@@ -8,21 +8,21 @@ public enum NotificationTypes implements NotificationType {
 	WARNING("/images/warning.png", "#E23E0A"),
 	ERROR("/images/error.png", "#CC0033");
 
-	private final String resource;
+	private final String urlResource;
 	private final String paintHex;
 
-	NotificationTypes(String resource, String paintHex) {
-		this.resource = resource;
+	NotificationTypes(String urlResource, String paintHex) {
+		this.urlResource = urlResource;
 		this.paintHex = paintHex;
 	}
 
 	@Override
-	public String resource() {
-		return resource;
+	public String getURLResource() {
+		return urlResource;
 	}
 
 	@Override
-	public String paintHex() {
+	public String getPaintHex() {
 		return paintHex;
 	}
 
