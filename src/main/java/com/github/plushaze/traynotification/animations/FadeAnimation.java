@@ -87,7 +87,7 @@ public class FadeAnimation implements TrayAnimation {
      */
     @Override
     public AnimationType getAnimationType() {
-        return AnimationType.FADE;
+        return AnimationTypes.FADE;
     }
 
     /**

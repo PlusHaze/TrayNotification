@@ -88,7 +88,7 @@ public class SlideAnimation implements TrayAnimation {
      */
     @Override
     public AnimationType getAnimationType() {
-        return AnimationType.SLIDE;
+        return AnimationTypes.SLIDE;
     }
 
     /**

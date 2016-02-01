@@ -1,12 +1,9 @@
 package com.github.plushaze.traynotification.notification;
 
-public enum NotificationType {
+public interface NotificationType {
 
-    INFORMATION,
-    NOTICE,
-    SUCCESS,
-    WARNING,
-    ERROR,
-    CUSTOM
+	String resource();
+
+	String paintHex();
 
 }

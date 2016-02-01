@@ -21,287 +21,262 @@ import java.net.URL;
 
 public final class TrayNotification {
 
-    @FXML
-    private Label lblTitle, lblMessage, lblClose;
-    @FXML
-    private ImageView imageIcon;
-    @FXML
-    private Rectangle rectangleColor;
-    @FXML
-    private AnchorPane rootNode;
+	@FXML
+	private Label lblTitle, lblMessage, lblClose;
+	@FXML
+	private ImageView imageIcon;
+	@FXML
+	private Rectangle rectangleColor;
+	@FXML
+	private AnchorPane rootNode;
 
-    private CustomStage stage;
-    private NotificationType notificationType;
-    private AnimationType animationType;
-    private EventHandler<ActionEvent> onDismissedCallBack, onShownCallback;
-    private TrayAnimation animator;
-    private AnimationProvider animationProvider;
+	private CustomStage stage;
+	private NotificationType notificationType;
+	private AnimationType animationType;
+	private EventHandler<ActionEvent> onDismissedCallBack, onShownCallback;
+	private TrayAnimation animator;
+	private AnimationProvider animationProvider;
 
-    /**
-     * Initializes an instance of the tray notification object
-     * @param title The title text to assign to the tray
-     * @param body The body text to assign to the tray
-     * @param img The image to show on the tray
-     * @param rectangleFill The fill for the rectangle
-     */
-    public TrayNotification(String title, String body, Image img, Paint rectangleFill) {
-        initTrayNotification(title, body, NotificationType.CUSTOM);
+	/**
+	 * Initializes an instance of the tray notification object
+	 *
+	 * @param title         The title text to assign to the tray
+	 * @param body          The body text to assign to the tray
+	 * @param img           The image to show on the tray
+	 * @param rectangleFill The fill for the rectangle
+	 */
+	public TrayNotification(String title, String body, Image img,
+	                        Paint rectangleFill, NotificationType notificationType) {
 
-        setImage(img);
-        setRectangleFill(rectangleFill);
-    }
+		initTrayNotification(title, body, notificationType);
 
-    /**
-     * Initializes an instance of the tray notification object
-     * @param title The title text to assign to the tray
-     * @param body The body text to assign to the tray
-     * @param notificationType The notification type to assign to the tray
-     */
-    public TrayNotification(String title, String body, NotificationType notificationType ) {
-        initTrayNotification(title, body, notificationType);
-    }
+		setImage(img);
+		setRectangleFill(rectangleFill);
+	}
 
-    /**
-     * Initializes an empty instance of the tray notification
-     */
-    public TrayNotification() {
-        initTrayNotification("", "", NotificationType.CUSTOM);
-    }
+	/**
+	 * Initializes an instance of the tray notification object
+	 *
+	 * @param title            The title text to assign to the tray
+	 * @param body             The body text to assign to the tray
+	 * @param notificationType The notification type to assign to the tray
+	 */
+	public TrayNotification(String title, String body, NotificationType notificationType) {
+		initTrayNotification(title, body, notificationType);
+	}
 
-    private void initTrayNotification(String title, String message, NotificationType type) {
+	/**
+	 * Initializes an empty instance of the tray notification
+	 */
+	public TrayNotification(NotificationType notificationType) {
+		initTrayNotification("", "", notificationType);
+	}
 
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/TrayNotification.fxml"));
+	private void initTrayNotification(String title, String message, NotificationType type) {
 
-            fxmlLoader.setController(this);
-            fxmlLoader.load();
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/TrayNotification.fxml"));
 
-            initStage();
-            initAnimations();
+			fxmlLoader.setController(this);
+			fxmlLoader.load();
 
-            setTray(title, message, type);
+			initStage();
+			initAnimations();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+			setTray(title, message, type);
 
-    private void initAnimations() {
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-        animationProvider =
-            new AnimationProvider(new FadeAnimation(stage), new SlideAnimation(stage), new PopupAnimation(stage));
+	private void initAnimations() {
+		animationProvider = new AnimationProvider(
+				new FadeAnimation(stage), new SlideAnimation(stage), new PopupAnimation(stage));
 
-        //Default animation type
-        setAnimationType(AnimationType.SLIDE);
-    }
+		//Default animation type
+		setAnimationType(AnimationTypes.SLIDE);
+	}
 
-    private void initStage() {
+	private void initStage() {
 
-        stage = new CustomStage(rootNode, StageStyle.UNDECORATED);
-        stage.setScene(new Scene(rootNode));
-        stage.setAlwaysOnTop(true);
-        stage.setLocation(stage.getBottomRight());
+		stage = new CustomStage(rootNode, StageStyle.UNDECORATED);
+		stage.setScene(new Scene(rootNode));
+		stage.setAlwaysOnTop(true);
+		stage.setLocation(stage.getBottomRight());
 
-        lblClose.setOnMouseClicked(e -> dismiss());
-    }
+		lblClose.setOnMouseClicked(e -> dismiss());
+	}
 
-    public void setNotificationType(NotificationType nType) {
+	public void setNotificationType(NotificationType nType) {
+		notificationType = nType;
 
-        notificationType = nType;
+		URL imageLocation = getClass().getResource(nType.resource());
+		setRectangleFill(Paint.valueOf(nType.paintHex()));
+		setImage(new Image(imageLocation.toString()));
+		setTrayIcon(imageIcon.getImage());
+	}
 
-        URL imageLocation = null;
-        String paintHex = null;
+	public NotificationType getNotificationType() {
+		return notificationType;
+	}
 
-        switch (nType) {
+	public void setTray(String title, String message, NotificationType type) {
+		setTitle(title);
+		setMessage(message);
+		setNotificationType(type);
+	}
 
-            case INFORMATION:
-                imageLocation = getClass().getResource("/images/info.png");
-                paintHex = "#2C54AB";
-                break;
+	public void setTray(String title, String message, Image img, Paint rectangleFill, AnimationTypes animType) {
+		setTitle(title);
+		setMessage(message);
+		setImage(img);
+		setRectangleFill(rectangleFill);
+		setAnimationType(animType);
+	}
 
-            case NOTICE:
-                imageLocation = getClass().getResource("/images/notice.png");
-                paintHex = "#8D9695";
-                break;
+	public boolean isTrayShowing() {
+		return animator.isShowing();
+	}
 
-            case SUCCESS:
-                imageLocation = getClass().getResource("/images/success.png");
-                paintHex = "#009961";
-                break;
+	/**
+	 * Shows and dismisses the tray notification
+	 *
+	 * @param dismissDelay How long to delay the start of the dismiss animation
+	 */
+	public void showAndDismiss(Duration dismissDelay) {
 
-            case WARNING:
-                imageLocation = getClass().getResource("/images/warning.png");
-                paintHex = "#E23E0A";
-                break;
+		if (isTrayShowing()) {
+			dismiss();
+		} else {
+			stage.show();
 
-            case ERROR:
-                imageLocation = getClass().getResource("/images/error.png");
-                paintHex = "#CC0033";
-                break;
+			onShown();
+			animator.playSequential(dismissDelay);
+		}
 
-            case CUSTOM:
-                return;
-        }
+		onDismissed();
+	}
 
-        setRectangleFill(Paint.valueOf(paintHex));
-        setImage(new Image(imageLocation.toString()));
-        setTrayIcon(imageIcon.getImage());
-    }
+	/**
+	 * Displays the notification tray
+	 */
+	public void showAndWait() {
 
-    public NotificationType getNotificationType() {
-        return notificationType;
-    }
+		if (!isTrayShowing()) {
+			stage.show();
 
-    public void setTray(String title, String message, NotificationType type) {
-        setTitle(title);
-        setMessage(message);
-        setNotificationType(type);
-    }
+			animator.playShowAnimation();
 
-    public void setTray(String title, String message, Image img, Paint rectangleFill, AnimationType animType) {
-        setTitle(title);
-        setMessage(message);
-        setImage(img);
-        setRectangleFill(rectangleFill);
-        setAnimationType(animType);
-    }
+			onShown();
+		}
+	}
 
-    public boolean isTrayShowing() {
-        return animator.isShowing();
-    }
+	/**
+	 * Dismisses the notifcation tray
+	 */
+	public void dismiss() {
 
-    /**
-     * Shows and dismisses the tray notification
-     * @param dismissDelay How long to delay the start of the dismiss animation
-     */
-    public void showAndDismiss(Duration dismissDelay) {
+		if (isTrayShowing()) {
+			animator.playDismissAnimation();
+			onDismissed();
+		}
+	}
 
-        if (isTrayShowing()) {
-            dismiss();
-        } else {
-            stage.show();
+	private void onShown() {
+		if (onShownCallback != null)
+			onShownCallback.handle(new ActionEvent());
+	}
 
-            onShown();
-            animator.playSequential(dismissDelay);
-        }
+	private void onDismissed() {
+		if (onDismissedCallBack != null)
+			onDismissedCallBack.handle(new ActionEvent());
+	}
 
-        onDismissed();
-    }
+	/**
+	 * Sets an action event for when the tray has been dismissed
+	 *
+	 * @param event The event to occur when the tray has been dismissed
+	 */
+	public void setOnDismiss(EventHandler<ActionEvent> event) {
+		onDismissedCallBack = event;
+	}
 
-    /**
-     * Displays the notification tray
-     */
-    public void showAndWait() {
+	/**
+	 * Sets an action event for when the tray has been shown
+	 *
+	 * @param event The event to occur after the tray has been shown
+	 */
+	public void setOnShown(EventHandler<ActionEvent> event) {
+		onShownCallback = event;
+	}
 
-        if (! isTrayShowing()) {
-            stage.show();
+	/**
+	 * Sets a new task bar image for the tray
+	 *
+	 * @param img The image to assign
+	 */
+	public void setTrayIcon(Image img) {
+		stage.getIcons().clear();
+		stage.getIcons().add(img);
+	}
 
-            animator.playShowAnimation();
+	public Image getTrayIcon() {
+		return stage.getIcons().get(0);
+	}
 
-            onShown();
-        }
-    }
+	/**
+	 * Sets a title to the tray
+	 *
+	 * @param txt The text to assign to the tray icon
+	 */
+	public void setTitle(String txt) {
+		lblTitle.setText(txt);
+	}
 
-    /**
-     * Dismisses the notifcation tray
-     */
-    public void dismiss() {
+	public String getTitle() {
+		return lblTitle.getText();
+	}
 
-        if (isTrayShowing()) {
-            animator.playDismissAnimation();
-            onDismissed();
-        }
-    }
+	/**
+	 * Sets the message for the tray notification
+	 *
+	 * @param txt The text to assign to the body of the tray notification
+	 */
+	public void setMessage(String txt) {
+		lblMessage.setText(txt);
+	}
 
-    private void onShown() {
-        if (onShownCallback != null)
-            onShownCallback.handle(new ActionEvent());
-    }
+	public String getMessage() {
+		return lblMessage.getText();
+	}
 
-    private void onDismissed() {
-        if (onDismissedCallBack != null)
-            onDismissedCallBack.handle(new ActionEvent());
-    }
+	public void setImage(Image img) {
+		imageIcon.setImage(img);
 
-    /**
-     * Sets an action event for when the tray has been dismissed
-     * @param event The event to occur when the tray has been dismissed
-     */
-    public void setOnDismiss(EventHandler<ActionEvent> event) {
-        onDismissedCallBack  = event;
-    }
+		setTrayIcon(img);
+	}
 
-    /**
-     * Sets an action event for when the tray has been shown
-     * @param event The event to occur after the tray has been shown
-     */
-    public void setOnShown(EventHandler<ActionEvent> event) {
-        onShownCallback  = event;
-    }
+	public Image getImage() {
+		return imageIcon.getImage();
+	}
 
-    /**
-     * Sets a new task bar image for the tray
-     * @param img The image to assign
-     */
-    public void setTrayIcon(Image img) {
-        stage.getIcons().clear();
-        stage.getIcons().add(img);
-    }
+	public void setRectangleFill(Paint value) {
+		rectangleColor.setFill(value);
+	}
 
-    public Image getTrayIcon() {
-        return stage.getIcons().get(0);
-    }
+	public Paint getRectangleFill() {
+		return rectangleColor.getFill();
+	}
 
-    /**
-     * Sets a title to the tray
-     * @param txt The text to assign to the tray icon
-     */
-    public void setTitle(String txt) {
-        lblTitle.setText(txt);
-    }
+	public void setAnimationType(AnimationType type) {
+		animator = animationProvider.findFirstWhere(a -> a.getAnimationType() == type);
 
-    public String getTitle() {
-        return lblTitle.getText();
-    }
+		animationType = type;
+	}
 
-    /**
-     * Sets the message for the tray notification
-     * @param txt The text to assign to the body of the tray notification
-     */
-    public void setMessage(String txt) {
-        lblMessage.setText(txt);
-    }
-
-    public String getMessage() {
-        return lblMessage.getText();
-    }
-
-    public void setImage (Image img) {
-        imageIcon.setImage(img);
-
-        setTrayIcon(img);
-    }
-
-    public Image getImage() {
-        return imageIcon.getImage();
-    }
-
-    public void setRectangleFill(Paint value) {
-        rectangleColor.setFill(value);
-    }
-
-    public Paint getRectangleFill() {
-        return rectangleColor.getFill();
-    }
-
-    public void setAnimationType(AnimationType type) {
-        animator = animationProvider.findFirstWhere(a -> a.getAnimationType() == type);
-
-        animationType = type;
-    }
-
-    public AnimationType getAnimationType() {
-        return animationType;
-    }
+	public AnimationType getAnimationType() {
+		return animationType;
+	}
 
 }

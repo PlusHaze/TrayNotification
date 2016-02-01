@@ -72,7 +72,7 @@ public class PopupAnimation implements TrayAnimation {
      */
     @Override
     public AnimationType getAnimationType() {
-        return AnimationType.POPUP;
+        return AnimationTypes.POPUP;
     }
 
     /**
