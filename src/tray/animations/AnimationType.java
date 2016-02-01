@@ -1,9 +1,7 @@
-package com.github.plushaze.traynotification.animations;
+package tray.animations;
 
 public enum AnimationType {
-
     FADE,
     SLIDE,
     POPUP
-
 }

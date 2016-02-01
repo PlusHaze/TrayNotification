@@ -1,7 +1,7 @@
-package com.github.plushaze.traynotification.animations;
+package tray.animations;
 
 import javafx.animation.*;
-import com.github.plushaze.traynotification.models.CustomStage;
+import tray.models.CustomStage;
 import javafx.util.Duration;
 
 public class PopupAnimation implements TrayAnimation {
@@ -111,5 +111,4 @@ public class PopupAnimation implements TrayAnimation {
     public boolean isShowing() {
         return trayIsShowing;
     }
-
 }

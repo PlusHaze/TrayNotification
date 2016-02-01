@@ -1,4 +1,4 @@
-package com.github.plushaze.traynotification.models;
+package tray.models;
 
 public class Location {
 
@@ -16,5 +16,4 @@ public class Location {
     public double getY() {
         return y;
     }
-
 }
