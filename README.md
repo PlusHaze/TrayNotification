@@ -8,7 +8,7 @@ ___
 ### Creating a new tray notification
 
 <p align="center">
-To use, create an instance of `TrayNotification` and define its title, message and notification type.
+To use, create an instance of <em>TrayNotification</em> and define its title, message and notification type.
 <br>
 </p>
 
@@ -42,7 +42,8 @@ Alternatively you can initialize the tray notification with its non-default cons
 <p align="center">
 The default animation type is a sliding animation.
 
-When `shownAndWait()` is called, the tray notification will show and wait until it is either dismissed with the close button or programmatically. 
+When <em>shownAndWait()</em> is called, the tray notification will show and wait until it is either dismissed
+with the close button or programmatically through your code. 
 </p>
 
 <br>
@@ -59,7 +60,7 @@ ___
 
 <p align="center">
 You can also customize the notification and animation type individually.
-For example, below shows a `NOTICE` notification with a fading animation.
+For example, a <em>NOTICE</em> notification with a fading animation:
 </p>
 
 ```java
@@ -89,9 +90,9 @@ ___
 <br>
 
 <p align="center">
-You're also able to set a custom image or rectangle fill. You can use `showAndDismiss`, which will show both the show
-and dismiss animation. You're also able to control the delay before dismissal following the show animation.
-This is great for when you want a notification to show for _x_ amount of time before closing.
+You're also able to set a custom image or rectangle fill. You can use <em>showAndDismiss</em>, which will show both the
+show and dismiss animation. You're also able to control the delay before dismissal following the show animation.
+This is great for when you want a notification to show for <em>x</em> amount of time before closing.
 </p>
 
 ```java
@@ -116,7 +117,7 @@ ___
 ### Setting a new tray overload methods
 
 <p align="center">
-A shorthand to changing the design of a tray animation is to use the `setTray`'s overloaded methods.
+A shorthand to changing the design of a tray animation is to use the <em>setTray</em>'s overloaded methods.
 </p>
 
 ```java
@@ -137,9 +138,11 @@ ___
 
 <p align="center">
 
-The video below showcases the `TrayTester.jar` app [which you can get here](https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar).
+The video below showcases the <em>TrayTester.jar</em> app 
+<a href="https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar>which you can get here</a>.
 <br>
-Click the image to go to the YouTube video.
+<br>
+Click the image below to watch the YouTube video.
 
 <br>
 <br>
