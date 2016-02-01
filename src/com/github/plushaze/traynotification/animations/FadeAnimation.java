@@ -1,11 +1,11 @@
-package tray.animations;
+package com.github.plushaze.traynotification.animations;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.SequentialTransition;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
-import tray.models.CustomStage;
+import com.github.plushaze.traynotification.models.CustomStage;
 
 public class FadeAnimation implements TrayAnimation {
 
@@ -126,4 +126,5 @@ public class FadeAnimation implements TrayAnimation {
     public boolean isShowing() {
         return trayIsShowing;
     }
+
 }

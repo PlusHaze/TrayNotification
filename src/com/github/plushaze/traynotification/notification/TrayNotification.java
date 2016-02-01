@@ -1,5 +1,6 @@
-package tray.notification;
+package com.github.plushaze.traynotification.notification;
 
+import com.github.plushaze.traynotification.animations.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,8 +14,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import tray.animations.*;
-import tray.models.CustomStage;
+import com.github.plushaze.traynotification.models.CustomStage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,7 +71,7 @@ public final class TrayNotification {
     private void initTrayNotification(String title, String message, NotificationType type) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tray/views/TrayNotification.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/plushaze/traynotification/views/TrayNotification.fxml"));
 
             fxmlLoader.setController(this);
             fxmlLoader.load();
@@ -115,27 +115,27 @@ public final class TrayNotification {
         switch (nType) {
 
             case INFORMATION:
-                imageLocation = getClass().getResource("/tray/resources/info.png");
+                imageLocation = getClass().getResource("/com/github/plushaze/traynotification/resources/info.png");
                 paintHex = "#2C54AB";
                 break;
 
             case NOTICE:
-                imageLocation = getClass().getResource("/tray/resources/notice.png");
+                imageLocation = getClass().getResource("/com/github/plushaze/traynotification/resources/notice.png");
                 paintHex = "#8D9695";
                 break;
 
             case SUCCESS:
-                imageLocation = getClass().getResource("/tray/resources/success.png");
+                imageLocation = getClass().getResource("/com/github/plushaze/traynotification/resources/success.png");
                 paintHex = "#009961";
                 break;
 
             case WARNING:
-                imageLocation = getClass().getResource("/tray/resources/warning.png");
+                imageLocation = getClass().getResource("/com/github/plushaze/traynotification/resources/warning.png");
                 paintHex = "#E23E0A";
                 break;
 
             case ERROR:
-                imageLocation = getClass().getResource("/tray/resources/error.png");
+                imageLocation = getClass().getResource("/com/github/plushaze/traynotification/resources/error.png");
                 paintHex = "#CC0033";
                 break;
 
@@ -303,4 +303,5 @@ public final class TrayNotification {
     public AnimationType getAnimationType() {
         return animationType;
     }
+
 }
