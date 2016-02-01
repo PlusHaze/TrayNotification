@@ -60,6 +60,7 @@ ___
 
 <p align="center">
 You can also customize the notification and animation type individually.
+<br>
 For example, a <em>NOTICE</em> notification with a fading animation:
 </p>
 
