@@ -1,4 +1,4 @@
-package tray.animations;
+package com.github.plushaze.traynotification.animations;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class AnimationProvider {
 
-    private List<TrayAnimation> animationsList;
+    private final List<TrayAnimation> animationsList;
 
     public AnimationProvider(TrayAnimation... animations) {
         animationsList = new ArrayList<>();
@@ -37,4 +37,5 @@ public class AnimationProvider {
     public List<TrayAnimation> where(Predicate<? super TrayAnimation> predicate) {
         return animationsList.stream().filter(predicate).collect(Collectors.toList());
     }
+
 }

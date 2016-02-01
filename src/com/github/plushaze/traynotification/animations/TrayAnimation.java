@@ -1,4 +1,4 @@
-package tray.animations;
+package com.github.plushaze.traynotification.animations;
 
 import javafx.util.Duration;
 
@@ -32,4 +32,5 @@ public interface TrayAnimation {
      * @return boolean resultant
      */
     boolean isShowing();
+
 }

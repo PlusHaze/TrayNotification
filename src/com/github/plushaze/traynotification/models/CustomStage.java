@@ -1,4 +1,4 @@
-package tray.models;
+package com.github.plushaze.traynotification.models;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Rectangle2D;
@@ -74,4 +74,5 @@ public class CustomStage extends Stage {
     public SimpleDoubleProperty yLocationProperty() {
         return yLocationProperty;
     }
+
 }
