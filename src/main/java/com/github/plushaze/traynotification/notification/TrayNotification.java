@@ -46,7 +46,6 @@ public final class TrayNotification {
 	 */
 	public TrayNotification(String title, String body, Image img,
 	                        Paint rectangleFill, Notification notification) {
-
 		initTrayNotification(title, body, notification);
 
 		setImage(img);
@@ -72,7 +71,6 @@ public final class TrayNotification {
 	}
 
 	private void initTrayNotification(String title, String message, Notification type) {
-
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/TrayNotification.fxml"));
 
@@ -94,7 +92,6 @@ public final class TrayNotification {
 	}
 
 	private void initStage() {
-
 		stage = new CustomStage(rootNode, StageStyle.UNDECORATED);
 		stage.setScene(new Scene(rootNode));
 		stage.setAlwaysOnTop(true);
@@ -140,15 +137,12 @@ public final class TrayNotification {
 	 * @param dismissDelay How long to delay the start of the dismiss animation
 	 */
 	public void showAndDismiss(Duration dismissDelay) {
-
-		if (isTrayShowing()) {
-			dismiss();
-		} else {
+		if (!isTrayShowing()) {
 			stage.show();
 
 			onShown();
 			animator.playSequential(dismissDelay);
-		}
+		} else dismiss();
 
 		onDismissed();
 	}
@@ -157,7 +151,6 @@ public final class TrayNotification {
 	 * Displays the notification tray
 	 */
 	public void showAndWait() {
-
 		if (!isTrayShowing()) {
 			stage.show();
 
@@ -171,7 +164,6 @@ public final class TrayNotification {
 	 * Dismisses the notifcation tray
 	 */
 	public void dismiss() {
-
 		if (isTrayShowing()) {
 			animator.playDismissAnimation();
 			onDismissed();
