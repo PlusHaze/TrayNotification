@@ -35,7 +35,6 @@ public final class TrayNotification {
 	private AnimationType animationType;
 	private EventHandler<ActionEvent> onDismissedCallBack, onShownCallback;
 	private TrayAnimation animator;
-	private AnimationProvider animationProvider;
 
 	/**
 	 * Initializes an instance of the tray notification object
@@ -91,9 +90,6 @@ public final class TrayNotification {
 	}
 
 	private void initAnimations() {
-		animationProvider = new AnimationProvider(
-				new FadeAnimation(stage), new SlideAnimation(stage), new PopupAnimation(stage));
-
 		//Default animation type
 		setAnimationType(AnimationTypes.SLIDE);
 	}
@@ -127,7 +123,7 @@ public final class TrayNotification {
 		setNotificationType(type);
 	}
 
-	public void setTray(String title, String message, Image img, Paint rectangleFill, AnimationTypes animType) {
+	public void setTray(String title, String message, Image img, Paint rectangleFill, AnimationType animType) {
 		setTitle(title);
 		setMessage(message);
 		setImage(img);
@@ -270,9 +266,11 @@ public final class TrayNotification {
 	}
 
 	public void setAnimationType(AnimationType type) {
-		animator = animationProvider.findFirstWhere(a -> a.getAnimationType() == type);
-
 		animationType = type;
+	}
+
+	public void setAnimationType(AnimationTypes type) {
+		setAnimationType(type.newInstance(stage));
 	}
 
 	public AnimationType getAnimationType() {

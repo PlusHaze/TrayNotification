@@ -4,7 +4,7 @@ import javafx.animation.*;
 import javafx.util.Duration;
 import com.github.plushaze.traynotification.models.CustomStage;
 
-public class SlideAnimation implements TrayAnimation {
+final class SlideAnimation implements TrayAnimation {
 
     private final Timeline showAnimation, dismissAnimation;
     private final SequentialTransition sq;
@@ -79,16 +79,6 @@ public class SlideAnimation implements TrayAnimation {
         });
 
         return tl;
-    }
-
-    /**
-     * The type of animation this class plays
-     *
-     * @return The type of animation this class plays
-     */
-    @Override
-    public AnimationType getAnimationType() {
-        return AnimationTypes.SLIDE;
     }
 
     /**

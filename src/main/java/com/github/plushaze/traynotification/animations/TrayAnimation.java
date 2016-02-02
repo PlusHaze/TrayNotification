@@ -2,15 +2,7 @@ package com.github.plushaze.traynotification.animations;
 
 import javafx.util.Duration;
 
-//All tray animations must implement TrayAnimation
-public interface TrayAnimation {
-
-	/**
-	 * The type of animation this class plays
-	 *
-	 * @return The type of animation this class plays
-	 */
-	AnimationType getAnimationType();
+public interface TrayAnimation extends AnimationType {
 
 	/**
 	 * Plays both the show and dismiss animation using a sequential transition object

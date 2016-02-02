@@ -9,70 +9,70 @@ import javafx.stage.StageStyle;
 
 public class CustomStage extends Stage {
 
-    private final Location bottomRight;
+	private final Location bottomRight;
 
-    public CustomStage(AnchorPane ap, StageStyle style) {
-        initStyle(style);
+	public CustomStage(AnchorPane ap, StageStyle style) {
+		initStyle(style);
 
-        setSize(ap.getPrefWidth(), ap.getPrefHeight());
+		setSize(ap.getPrefWidth(), ap.getPrefHeight());
 
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        double x = screenBounds.getMinX() + screenBounds.getWidth() - ap.getPrefWidth() - 2;
-        double y = screenBounds.getMinY() + screenBounds.getHeight() - ap.getPrefHeight() - 2;
+		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+		double x = screenBounds.getMinX() + screenBounds.getWidth() - ap.getPrefWidth() - 2;
+		double y = screenBounds.getMinY() + screenBounds.getHeight() - ap.getPrefHeight() - 2;
 
-        bottomRight = new Location(x,y);
-    }
+		bottomRight = Location.at(x, y);
+	}
 
-    public Location getBottomRight() {
-        return bottomRight;
-    }
+	public Location getBottomRight() {
+		return bottomRight;
+	}
 
-    public void setSize(double width, double height) {
-        setWidth(width);
-        setHeight(height);
-    }
+	public void setSize(double width, double height) {
+		setWidth(width);
+		setHeight(height);
+	}
 
-    public Location getOffScreenBounds() {
-        Location loc = getBottomRight();
+	public Location getOffScreenBounds() {
+		Location loc = getBottomRight();
 
-        return new Location(loc.getX() + this.getWidth(), loc.getY());
-    }
+		return Location.at(loc.getX() + this.getWidth(), loc.getY());
+	}
 
-    public void setLocation(Location loc) {
-        setX(loc.getX());
-        setY(loc.getY());
-    }
+	public void setLocation(Location loc) {
+		setX(loc.getX());
+		setY(loc.getY());
+	}
 
-    private SimpleDoubleProperty xLocationProperty = new SimpleDoubleProperty() {
-        @Override
-        public void set(double newValue) {
-            setX(newValue);
-        }
+	private SimpleDoubleProperty xLocationProperty = new SimpleDoubleProperty() {
+		@Override
+		public void set(double newValue) {
+			setX(newValue);
+		}
 
-        @Override
-        public double get() {
-            return getX();
-        }
-    };
+		@Override
+		public double get() {
+			return getX();
+		}
+	};
 
-    public SimpleDoubleProperty xLocationProperty() {
-        return xLocationProperty;
-    }
+	public SimpleDoubleProperty xLocationProperty() {
+		return xLocationProperty;
+	}
 
-    private SimpleDoubleProperty yLocationProperty = new SimpleDoubleProperty() {
-        @Override
-        public void set(double newValue) {
-            setY(newValue);
-        }
+	private SimpleDoubleProperty yLocationProperty = new SimpleDoubleProperty() {
+		@Override
+		public void set(double newValue) {
+			setY(newValue);
+		}
 
-        @Override
-        public double get() {
-            return getY();
-        }
-    };
+		@Override
+		public double get() {
+			return getY();
+		}
+	};
 
-    public SimpleDoubleProperty yLocationProperty() {
-        return yLocationProperty;
-    }
+	public SimpleDoubleProperty yLocationProperty() {
+		return yLocationProperty;
+	}
 
 }
