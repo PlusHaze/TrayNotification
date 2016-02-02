@@ -67,24 +67,31 @@ public final class TrayNotification {
 	 * Initializes an empty instance of the tray notification
 	 */
 	public TrayNotification(Notification notification) {
-		initTrayNotification("", "", notification);
+		this("", "", notification);
+	}
+
+	/**
+	 * Initializes the tray notification with the default type.
+	 */
+	public TrayNotification() {
+		this(Notifications.NOTICE);
 	}
 
 	private void initTrayNotification(String title, String message, Notification type) {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("views/TrayNotification.fxml"));
+
+		fxmlLoader.setController(this);
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/TrayNotification.fxml"));
-
-			fxmlLoader.setController(this);
 			fxmlLoader.load();
-
-			initStage();
-			initAnimations();
-
-			setTray(title, message, type);
-
 		} catch (IOException e) {
 			e.printStackTrace();
+			return;
 		}
+
+		initStage();
+		initAnimations();
+
+		setTray(title, message, type);
 	}
 
 	private void initAnimations() {
@@ -103,7 +110,7 @@ public final class TrayNotification {
 	public void setNotification(Notification nType) {
 		notification = nType;
 
-		URL imageLocation = getClass().getResource(nType.getURLResource());
+		URL imageLocation = getClass().getClassLoader().getResource(nType.getURLResource());
 		setRectangleFill(Paint.valueOf(nType.getPaintHex()));
 		setImage(new Image(imageLocation.toString()));
 		setTrayIcon(imageIcon.getImage());
