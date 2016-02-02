@@ -9,10 +9,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import javax.swing.*;
 import java.util.concurrent.CountDownLatch;
@@ -23,6 +20,8 @@ public final class ReadMeTest {
 
 	@BeforeClass
 	public static void initializeJavaFX() throws InterruptedException {
+		Assume.assumeFalse(System.getProperty("os.name").toLowerCase().contains("travis"));
+
 		final CountDownLatch latch = new CountDownLatch(1);
 		SwingUtilities.invokeLater(() -> {
 			new JFXPanel(); // initializes JavaFX environment
@@ -39,6 +38,8 @@ public final class ReadMeTest {
 
 	@Before
 	public void initializeTray() {
+		Assume.assumeFalse(System.getProperty("os.name").toLowerCase().contains("travis"));
+
 		Platform.runLater(() -> tray = new TrayNotification());
 	}
 
