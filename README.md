@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/Jire/TrayNotification.svg?branch=master)](https://travis-ci.org/Jire/TrayNotification) 
 [![](https://jitpack.io/v/PlusHaze/TrayNotification.svg)](https://jitpack.io/#PlusHaze/TrayNotification)
 
 # Tray Notification

@@ -20,8 +20,6 @@ public final class ReadMeTest {
 
 	@BeforeClass
 	public static void initializeJavaFX() throws InterruptedException {
-		Assume.assumeFalse(System.getProperty("os.name").toLowerCase().contains("travis"));
-
 		final CountDownLatch latch = new CountDownLatch(1);
 		SwingUtilities.invokeLater(() -> {
 			new JFXPanel(); // initializes JavaFX environment
@@ -38,8 +36,6 @@ public final class ReadMeTest {
 
 	@Before
 	public void initializeTray() {
-		Assume.assumeFalse(System.getProperty("os.name").toLowerCase().contains("travis"));
-
 		Platform.runLater(() -> tray = new TrayNotification());
 	}
 
