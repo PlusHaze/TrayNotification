@@ -7,7 +7,7 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import com.github.plushaze.traynotification.models.CustomStage;
 
-final class FadeAnimation implements TrayAnimation {
+final class FadeAnimation implements Animation {
 
 	private final Timeline showAnimation, dismissAnimation;
 	private final SequentialTransition sq;

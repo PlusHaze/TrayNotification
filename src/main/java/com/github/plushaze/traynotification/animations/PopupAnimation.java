@@ -4,7 +4,7 @@ import javafx.animation.*;
 import com.github.plushaze.traynotification.models.CustomStage;
 import javafx.util.Duration;
 
-final class PopupAnimation implements TrayAnimation {
+final class PopupAnimation implements Animation {
 
 	private final Timeline showAnimation, dismissAnimation;
 	private final SequentialTransition sq;

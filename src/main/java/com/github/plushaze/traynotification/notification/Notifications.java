@@ -1,6 +1,6 @@
 package com.github.plushaze.traynotification.notification;
 
-public enum NotificationTypes implements NotificationType {
+public enum Notifications implements Notification {
 
 	INFORMATION("/images/info.png", "#2C54AB"),
 	NOTICE("/images/notice.png", "#8D9695"),
@@ -11,7 +11,7 @@ public enum NotificationTypes implements NotificationType {
 	private final String urlResource;
 	private final String paintHex;
 
-	NotificationTypes(String urlResource, String paintHex) {
+	Notifications(String urlResource, String paintHex) {
 		this.urlResource = urlResource;
 		this.paintHex = paintHex;
 	}

@@ -4,20 +4,19 @@ import com.github.plushaze.traynotification.models.CustomStage;
 
 import java.util.function.Function;
 
-public enum AnimationTypes implements AnimationType {
+public enum Animations {
 
 	SLIDE(SlideAnimation::new),
 	FADE(FadeAnimation::new),
 	POPUP(PopupAnimation::new);
 
-	private final Function<CustomStage, AnimationType> newInstance;
+	private final Function<CustomStage, Animation> newInstance;
 
-	AnimationTypes(Function<CustomStage, AnimationType> newInstance) {
+	Animations(Function<CustomStage, Animation> newInstance) {
 		this.newInstance = newInstance;
 	}
 
-	@Override
-	public AnimationType newInstance(CustomStage stage) {
+	public Animation newInstance(CustomStage stage) {
 		return newInstance.apply(stage);
 	}
 

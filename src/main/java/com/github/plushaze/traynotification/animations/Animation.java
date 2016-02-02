@@ -2,7 +2,7 @@ package com.github.plushaze.traynotification.animations;
 
 import javafx.util.Duration;
 
-public interface TrayAnimation extends AnimationType {
+public interface Animation {
 
 	/**
 	 * Plays both the show and dismiss animation using a sequential transition object

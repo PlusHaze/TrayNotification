@@ -31,10 +31,10 @@ public final class TrayNotification {
 	private AnchorPane rootNode;
 
 	private CustomStage stage;
-	private NotificationType notificationType;
-	private AnimationType animationType;
+	private Notification notification;
+	private Animation animation;
 	private EventHandler<ActionEvent> onDismissedCallBack, onShownCallback;
-	private TrayAnimation animator;
+	private Animation animator;
 
 	/**
 	 * Initializes an instance of the tray notification object
@@ -45,9 +45,9 @@ public final class TrayNotification {
 	 * @param rectangleFill The fill for the rectangle
 	 */
 	public TrayNotification(String title, String body, Image img,
-	                        Paint rectangleFill, NotificationType notificationType) {
+	                        Paint rectangleFill, Notification notification) {
 
-		initTrayNotification(title, body, notificationType);
+		initTrayNotification(title, body, notification);
 
 		setImage(img);
 		setRectangleFill(rectangleFill);
@@ -56,22 +56,22 @@ public final class TrayNotification {
 	/**
 	 * Initializes an instance of the tray notification object
 	 *
-	 * @param title            The title text to assign to the tray
-	 * @param body             The body text to assign to the tray
-	 * @param notificationType The notification type to assign to the tray
+	 * @param title        The title text to assign to the tray
+	 * @param body         The body text to assign to the tray
+	 * @param notification The notification type to assign to the tray
 	 */
-	public TrayNotification(String title, String body, NotificationType notificationType) {
-		initTrayNotification(title, body, notificationType);
+	public TrayNotification(String title, String body, Notification notification) {
+		initTrayNotification(title, body, notification);
 	}
 
 	/**
 	 * Initializes an empty instance of the tray notification
 	 */
-	public TrayNotification(NotificationType notificationType) {
-		initTrayNotification("", "", notificationType);
+	public TrayNotification(Notification notification) {
+		initTrayNotification("", "", notification);
 	}
 
-	private void initTrayNotification(String title, String message, NotificationType type) {
+	private void initTrayNotification(String title, String message, Notification type) {
 
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/TrayNotification.fxml"));
@@ -90,8 +90,7 @@ public final class TrayNotification {
 	}
 
 	private void initAnimations() {
-		//Default animation type
-		setAnimationType(AnimationTypes.SLIDE);
+		setAnimation(Animations.SLIDE); // Default animation type
 	}
 
 	private void initStage() {
@@ -104,8 +103,8 @@ public final class TrayNotification {
 		lblClose.setOnMouseClicked(e -> dismiss());
 	}
 
-	public void setNotificationType(NotificationType nType) {
-		notificationType = nType;
+	public void setNotification(Notification nType) {
+		notification = nType;
 
 		URL imageLocation = getClass().getResource(nType.getURLResource());
 		setRectangleFill(Paint.valueOf(nType.getPaintHex()));
@@ -113,22 +112,22 @@ public final class TrayNotification {
 		setTrayIcon(imageIcon.getImage());
 	}
 
-	public NotificationType getNotificationType() {
-		return notificationType;
+	public Notification getNotification() {
+		return notification;
 	}
 
-	public void setTray(String title, String message, NotificationType type) {
+	public void setTray(String title, String message, Notification type) {
 		setTitle(title);
 		setMessage(message);
-		setNotificationType(type);
+		setNotification(type);
 	}
 
-	public void setTray(String title, String message, Image img, Paint rectangleFill, AnimationType animType) {
+	public void setTray(String title, String message, Image img, Paint rectangleFill, Animation animation) {
 		setTitle(title);
 		setMessage(message);
 		setImage(img);
 		setRectangleFill(rectangleFill);
-		setAnimationType(animType);
+		setAnimation(animation);
 	}
 
 	public boolean isTrayShowing() {
@@ -265,12 +264,16 @@ public final class TrayNotification {
 		return rectangleColor.getFill();
 	}
 
-	public void setAnimationType(AnimationType type) {
-		animationType = type.newInstance(stage);
+	public void setAnimation(Animation animation) {
+		this.animation = animation;
 	}
 
-	public AnimationType getAnimationType() {
-		return animationType;
+	public void setAnimation(Animations animation) {
+		setAnimation(animation.newInstance(stage));
+	}
+
+	public Animation getAnimation() {
+		return animation;
 	}
 
 }
