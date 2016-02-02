@@ -266,11 +266,7 @@ public final class TrayNotification {
 	}
 
 	public void setAnimationType(AnimationType type) {
-		animationType = type;
-	}
-
-	public void setAnimationType(AnimationTypes type) {
-		setAnimationType(type.newInstance(stage));
+		animationType = type.newInstance(stage);
 	}
 
 	public AnimationType getAnimationType() {

@@ -16,6 +16,7 @@ public enum AnimationTypes implements AnimationType {
 		this.newInstance = newInstance;
 	}
 
+	@Override
 	public AnimationType newInstance(CustomStage stage) {
 		return newInstance.apply(stage);
 	}
