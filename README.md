@@ -144,7 +144,7 @@ ___
 <p align="center">
 
 The video below showcases the <em>TrayTester.jar</em> app 
-<a href="https://github.com/PlusHaze/TrayNotification/tree/master/TrayTester.jar">which you can get here</a>.
+<a href="TrayTester.jar">which you can get here</a>.
 <br>
 <br>
 Click the image below to watch the YouTube video.
