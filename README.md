@@ -18,12 +18,12 @@ To use, create an instance of <em>TrayNotification</em> and define its title, me
 ```java
         String title = "Congratulations sir";
         String message = "You've successfully created your first Tray Notification";
-        Notification type = Notifications.SUCCESS;
+        Notification notification = Notifications.SUCCESS;
         
         TrayNotification tray = new TrayNotification();
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotification(type);
+        tray.setNotification(notification);
         tray.showAndWait();
 ```
 
@@ -32,7 +32,7 @@ Alternatively you can initialize the tray notification with its non-default cons
 </p>
 
 ```java
-        TrayNotification tray = new TrayNotification(title, message, type);
+        TrayNotification tray = new TrayNotification(title, message, notification);
         tray.showAndWait();
 ```
 
@@ -70,11 +70,11 @@ Using a notice notification with a fading animation, for example:
 ```java
         String title = "Download quota reached";
         String message = "Your download quota has been reached. Panic.";
-        NotificationType type = NotificationType.NOTICE;
+        Notification notification = Notifications.NOTICE;
         
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotification(type);
+        tray.setNotification(notification);
         tray.setAnimation(Animations.FADE);
         tray.showAndWait();
 ```
@@ -130,7 +130,7 @@ A shorthand to changing the design of a tray animation is to use the <em>setTray
         tray.showAndWait();
         
         //OR
-        tray.setTray("Title", "Message", whatsAppImg, Paint.valueOf("#2A9A84") , AnimationType.POPUP);
+        tray.setTray("Title", "Message", whatsAppImg, Paint.valueOf("#2A9A84") , Animations.POPUP);
         tray.showAndDismiss(Duration.seconds(10));
 
 ```
