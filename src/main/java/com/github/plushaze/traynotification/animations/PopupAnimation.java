@@ -4,25 +4,14 @@ import javafx.animation.*;
 import com.github.plushaze.traynotification.models.CustomStage;
 import javafx.util.Duration;
 
-final class PopupAnimation implements Animation {
+final class PopupAnimation extends AbstractAnimation {
 
-	private final Timeline showAnimation, dismissAnimation;
-	private final SequentialTransition sq;
-	private final CustomStage stage;
-	private boolean trayIsShowing;
-
-	public PopupAnimation(CustomStage s) {
-
-		this.stage = s;
-
-		showAnimation = setupShowAnimation();
-		dismissAnimation = setupDismissAnimation();
-
-		sq = new SequentialTransition(setupShowAnimation(), setupDismissAnimation());
+	PopupAnimation(CustomStage stage) {
+		super(stage);
 	}
 
-	private Timeline setupDismissAnimation() {
-
+	@Override
+	protected Timeline setupDismissAnimation() {
 		Timeline tl = new Timeline();
 
 		KeyValue kv1 = new KeyValue(stage.yLocationProperty(), stage.getY() + stage.getWidth());
@@ -42,8 +31,8 @@ final class PopupAnimation implements Animation {
 		return tl;
 	}
 
-	private Timeline setupShowAnimation() {
-
+	@Override
+	protected Timeline setupShowAnimation() {
 		Timeline tl = new Timeline();
 
 		KeyValue kv1 = new KeyValue(stage.yLocationProperty(), stage.getBottomRight().getY() + stage.getWidth());
@@ -63,43 +52,6 @@ final class PopupAnimation implements Animation {
 		tl.setOnFinished(e -> trayIsShowing = true);
 
 		return tl;
-	}
-
-	/**
-	 * Plays both the show and dismiss animation using a sequential transition object
-	 *
-	 * @param dismissDelay How long to delay the start of the dismiss animation
-	 */
-	@Override
-	public void playSequential(Duration dismissDelay) {
-		sq.getChildren().get(1).setDelay(dismissDelay);
-		sq.play();
-	}
-
-	/**
-	 * Plays the implemented show animation
-	 */
-	@Override
-	public void playShowAnimation() {
-		showAnimation.play();
-	}
-
-	/**
-	 * Plays the implemented dismiss animation
-	 */
-	@Override
-	public void playDismissAnimation() {
-		dismissAnimation.play();
-	}
-
-	/**
-	 * Signifies if the tray is current showing
-	 *
-	 * @return boolean resultant
-	 */
-	@Override
-	public boolean isShowing() {
-		return trayIsShowing;
 	}
 
 }
