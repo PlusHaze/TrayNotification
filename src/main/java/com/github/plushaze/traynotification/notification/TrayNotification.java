@@ -1,6 +1,7 @@
 package com.github.plushaze.traynotification.notification;
 
 import com.github.plushaze.traynotification.animations.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,7 +35,6 @@ public final class TrayNotification {
 	private Notification notification;
 	private Animation animation;
 	private EventHandler<ActionEvent> onDismissedCallBack, onShownCallback;
-	private Animation animator;
 
 	/**
 	 * Initializes an instance of the tray notification object
@@ -135,7 +135,7 @@ public final class TrayNotification {
 	}
 
 	public boolean isTrayShowing() {
-		return animator.isShowing();
+		return animation.isShowing();
 	}
 
 	/**
@@ -148,7 +148,7 @@ public final class TrayNotification {
 			stage.show();
 
 			onShown();
-			animator.playSequential(dismissDelay);
+			animation.playSequential(dismissDelay);
 		} else dismiss();
 
 		onDismissed();
@@ -161,7 +161,7 @@ public final class TrayNotification {
 		if (!isTrayShowing()) {
 			stage.show();
 
-			animator.playShowAnimation();
+			animation.playShowAnimation();
 
 			onShown();
 		}
@@ -172,7 +172,7 @@ public final class TrayNotification {
 	 */
 	public void dismiss() {
 		if (isTrayShowing()) {
-			animator.playDismissAnimation();
+			animation.playDismissAnimation();
 			onDismissed();
 		}
 	}
@@ -225,7 +225,7 @@ public final class TrayNotification {
 	 * @param txt The text to assign to the tray icon
 	 */
 	public void setTitle(String txt) {
-		lblTitle.setText(txt);
+		Platform.runLater(() -> lblTitle.setText(txt));
 	}
 
 	public String getTitle() {
