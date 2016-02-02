@@ -17,9 +17,9 @@ import org.junit.Test;
 import javax.swing.*;
 import java.util.concurrent.CountDownLatch;
 
-public class ReadMeTest {
+public final class ReadMeTest {
 
-	private TrayNotification tray;
+	private volatile TrayNotification tray;
 
 	@BeforeClass
 	public static void initializeJavaFX() throws InterruptedException {
