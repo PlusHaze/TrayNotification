@@ -1,26 +1,29 @@
+[![](https://jitpack.io/v/PlusHaze/TrayNotification.svg)](https://jitpack.io/#PlusHaze/TrayNotification)
+
 # Tray Notification
 
-_Tray Notification_ is a library for JavaFX that adds easy-to-use tray notifications for desktop computers. There are
-5 included notification types and 3 animation types, but users can create their own custom notifications.
+_Tray Notification_ is a library for JavaFX that adds easy-to-use tray notifications for desktop computers.  
+
+There are 5 included notifications and 3 included animations, but you're able to also add your own.
 
 ___
 
 ### Creating a new tray notification
 
 <p align="center">
-To use, create an instance of <em>TrayNotification</em> and define its title, message and notification type.
+To use, create an instance of <em>TrayNotification</em> and define its title, message and notification.
 <br>
 </p>
 
 ```java
         String title = "Congratulations sir";
         String message = "You've successfully created your first Tray Notification";
-        NotificationType type = NotificationType.SUCCESS;
+        Notification notification = Notifications.SUCCESS;
         
         TrayNotification tray = new TrayNotification();
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotificationType(type);
+        tray.setNotification(notification);
         tray.showAndWait();
 ```
 
@@ -29,7 +32,7 @@ Alternatively you can initialize the tray notification with its non-default cons
 </p>
 
 ```java
-        TrayNotification tray = new TrayNotification(title, message, type);
+        TrayNotification tray = new TrayNotification(title, message, notification);
         tray.showAndWait();
 ```
 
@@ -40,7 +43,7 @@ Alternatively you can initialize the tray notification with its non-default cons
 <br>
 
 <p align="center">
-The default animation type is a sliding animation.
+The default animation is a sliding animation.
 
 When <em>shownAndWait()</em> is called, the tray notification will show and wait until it is either dismissed
 with the close button or programmatically through your code. 
@@ -56,23 +59,23 @@ with the close button or programmatically through your code.
 
 ___
 
-### Using different animation and notification types
+### Using different animations and notifications
 
 <p align="center">
-You can also customize the notification and animation type individually.
+You can also individually customize notifications and animations.
 <br>
-For example, a <em>NOTICE</em> notification with a fading animation:
+Using a notice notification with a fading animation, for example:
 </p>
 
 ```java
         String title = "Download quota reached";
         String message = "Your download quota has been reached. Panic.";
-        NotificationType type = NotificationType.NOTICE;
+        Notification notification = Notifications.NOTICE;
         
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotificationType(type);
-        tray.setAnimationType(AnimationType.FADE);
+        tray.setNotification(notification);
+        tray.setAnimation(Animations.FADE);
         tray.showAndWait();
 ```
 
@@ -102,7 +105,7 @@ This is useful for when you want a notification to appear for a certain amount o
         tray.setTitle("New WhatsApp Message");
         tray.setMessage("Github - I like your new notification release. Nice one.");
         tray.setRectangleFill(Paint.valueOf("#2A9A84"));
-        tray.setAnimationType(AnimationType.POPUP);
+        tray.setAnimation(Animations.POPUP);
         tray.setImage(whatsAppImg);
         tray.showAndDismiss(Duration.seconds(2));
 ```
@@ -123,11 +126,11 @@ A shorthand to changing the design of a tray animation is to use the <em>setTray
 
 ```java
 
-        tray.setTray("Title", "Message", NotificationType.ERROR);
+        tray.setTray("Title", "Message", Notifications.ERROR);
         tray.showAndWait();
         
         //OR
-        tray.setTray("Title", "Message", whatsAppImg, Paint.valueOf("#2A9A84") , AnimationType.POPUP);
+        tray.setTray("Title", "Message", whatsAppImg, Paint.valueOf("#2A9A84") , Animations.POPUP);
         tray.showAndDismiss(Duration.seconds(10));
 
 ```
@@ -140,7 +143,7 @@ ___
 <p align="center">
 
 The video below showcases the <em>TrayTester.jar</em> app 
-<a href="https://github.com/PlusHaze/TrayNotification/tree/master/out/TrayTester.jar">which you can get here</a>.
+<a href="TrayTester.jar">which you can get here</a>.
 <br>
 <br>
 Click the image below to watch the YouTube video.
