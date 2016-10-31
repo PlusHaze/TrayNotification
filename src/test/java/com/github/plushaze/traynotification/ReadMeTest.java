@@ -45,10 +45,12 @@ public final class ReadMeTest {
 		String message = "You've successfully created your first Tray Notification";
 		Notification notification = Notifications.SUCCESS;
 
-		tray.setTitle(title);
-		tray.setMessage(message);
-		tray.setNotification(notification);
-		tray.showAndWait();
+		Platform.runLater(() -> {
+			tray.setTitle(title);
+			tray.setMessage(message);
+			tray.setNotification(notification);
+			tray.showAndWait();
+		});
 	}
 
 	@Test
