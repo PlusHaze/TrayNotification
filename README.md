@@ -18,12 +18,11 @@ To use, create an instance of <em>TrayNotification</em> and define its title, me
 ```java
         String title = "Congratulations sir";
         String message = "You've successfully created your first Tray Notification";
-        Notification notification = Notifications.SUCCESS;
         
         TrayNotification tray = new TrayNotification();
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotification(notification);
+        tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndWait();
 ```
 
@@ -70,11 +69,10 @@ Using a notice notification with a fading animation, for example:
 ```java
         String title = "Download quota reached";
         String message = "Your download quota has been reached. Panic.";
-        Notification notification = Notifications.NOTICE;
         
         tray.setTitle(title);
         tray.setMessage(message);
-        tray.setNotification(notification);
+        tray.setNotificationType(NotificationType.NOTICE);
         tray.setAnimation(Animations.FADE);
         tray.showAndWait();
 ```
