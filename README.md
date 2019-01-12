@@ -6,6 +6,7 @@ _Tray Notification_ is a library for JavaFX that adds easy-to-use tray notificat
 
 There are 5 included notifications and 3 included animations, but you're able to also add your own.
 
+<a href="https://github.com/Iampato/TrayNotification/blob/master/out/TrayNotification.jar">Download TrayNotification.jar Here</a>
 ___
 
 ### Creating a new tray notification
